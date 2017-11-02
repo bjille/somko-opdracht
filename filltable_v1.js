@@ -4,7 +4,6 @@ $(document).ready(function(){
     $("#datatable").addClass('table table-striped');
 
 	$("button").click(function(){
-		$("p").html("Hello world") 
 
     var par1 = "bev_tot";
     var result;
@@ -12,6 +11,9 @@ $(document).ready(function(){
 		$.getJSON("bevolkingssamenstellingoverzicht.json", function(json){
 	    data = json;
 	    var tbl_body = "";
+	    //header = "<tr><th>" + "period" + "</th><th>" + par1 + "</th></th>";
+	    $("#datatbody").append("<tr><th>" + "period" + "</th><th>" + par1 + "</th></th>");
+	    
 	    $.each(data, function(i, item) {
 	    	var tbl_row = "";
 
@@ -21,9 +23,8 @@ $(document).ready(function(){
 	    		}
             
         	})
-	    	tbl_body += "<tr>"+tbl_row+"</tr>";
 		    //alert(data[i].par1)
-			var obj = data[i];
+	    	var obj = data[i];
 		    //console.log(data[i].geoitem);
 		    var $tr = $('<tr>').append(
 
@@ -38,8 +39,8 @@ $(document).ready(function(){
 
 		$("#datatable").addClass('table table-striped');
 		//$("#datatable").html("<tbody>" + tbl_body + "</tbody>");
-		$("#datatbody").html(tbl_body);
-
+		//$("#datatbody").html(header + tbl_body);
+		$("#datatbody").append(tbl_body);
 		});
 	});
 
