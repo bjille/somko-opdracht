@@ -1,7 +1,6 @@
 $(document).ready(function(){
 
     
-    $("#datatable").append("<tr><td>sno</td><td>name</td></tr>")
     $("#datatable").addClass('table table-striped');
 
 	$("button").click(function(){
@@ -36,18 +35,12 @@ $(document).ready(function(){
 		    //console.log(obj[par1]);
 		    tbl_body += "<tr>"+tbl_row+"</tr>";
 		});	
+
 		$("#datatable").addClass('table table-striped');
-		$("#datatable").html("<tbody>" + tbl_body + "</tbody>");
+		//$("#datatable").html("<tbody>" + tbl_body + "</tbody>");
+		$("#datatbody").html(tbl_body);
 
-
-
-	});
-	$('#thetable tr').not(':first').not(':last').remove();
-var html = '';
-for(var i = 0; i < data.d.length; i++)
-            html += '<tr><td>' + data.d[i].FirstName + '</td><td>' + data.d[i].Age + '</td></tr>';
-$('#thetable tr').first().after(html);
-
+		});
 	});
 
 
