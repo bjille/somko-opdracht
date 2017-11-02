@@ -1,6 +1,5 @@
 $(document).ready(function(){
 
-	
     
     $("#datatable").append("<tr><td>sno</td><td>name</td></tr>")
     $("#datatable").addClass('table table-striped');
