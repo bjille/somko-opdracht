@@ -37,7 +37,7 @@ $(document).ready(function(){
 		    tbl_body += "<tr>"+tbl_row+"</tr>";
 		});	
 		$("#datatable").addClass('table table-striped');
-		$("#datatable").html(tbl_body);
+		$("#datatable").html("<tbody>" + tbl_body + "</tbody>");
 
 
 
