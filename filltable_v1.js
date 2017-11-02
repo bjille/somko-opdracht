@@ -3,11 +3,21 @@ $(document).ready(function(){
     
     $("#datatable").addClass('table table-striped');
 
+
+		$.getJSON("overzichtdemografischeonderwerpen.json", function(json){
+	    dropdowndata = json;
+		    $.each(dropdowndata, function(i,item) {
+		    	$('#sel').append("<option>" + item.Beschrijving + "</option>");
+		    });
+		});
+
+
 	$("button").click(function(){
 
-    var par1 = "bev_tot";
-    var result;
-	var data;
+	    var par1 = "bev_tot";
+	    var result;
+		var data;
+
 		$.getJSON("bevolkingssamenstellingoverzicht.json", function(json){
 	    data = json;
 	    var tbl_body = "";
