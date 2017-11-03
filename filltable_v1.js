@@ -22,7 +22,8 @@ $(document).ready(function(){
 		$("#result").empty();
 		selectionarray = [];
 		//var x = $("#sel option:selected").text();
-		//alert(x);
+		selectionarray.push(["period"]);
+		selectionarray.push(["geoitem"]);
 		$.each(x, function(i,field){
 			//alert(field)
 			$.each(dropdowndata, function(i,item){
