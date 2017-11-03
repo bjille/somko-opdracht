@@ -42,7 +42,7 @@ $(document).ready(function(){
 					selectionarray.push([code]);
 					//selectionarray.push(i++);
 					//selectionarray = $.makeArray(dropdowndata);
-					$("#result").append("<p>" + item.Beschrijving + "</p>");
+					$("#result").append("<p>" + item.Onderwerpcode + " = " + item.Beschrijving + "</p>");
 					
 				}
 			});
@@ -61,11 +61,12 @@ $(document).ready(function(){
 	    //$("#datatbody").append("<th>" + "period" + "</th>");
 	    if (selectionarray.length == 2){
 	    	alert("geen parameters geselecteerd");
+
 	    } else  {
 	    $.each(selectionarray, function(i,item){
 			$("#datatbody").append("<th>" + item + "</th>");
 			});
-		    	    
+
 		    //$("#datatbody").append("</tr>");
 		    //$("#datatbody").append("<tr><th>" + "period" + "</th><th>" + selectionarray[0] + "</th></th>");
 		    

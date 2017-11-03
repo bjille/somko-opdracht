@@ -1,7 +1,22 @@
+.bottom {
+  background: lightgrey;
+  flex: 1;
+}
 
 .jumbotron {
     background-color: #f4511e; /* Orange */
     color: #ffffff;
+}
+
+
+.result {    
+    max-height: 100px;
+    overflow: auto;
+}
+
+.datatable {
+    max-height: 200px;
+    overflow: auto;
 }
 
 .navbar {
