@@ -1,3 +1,9 @@
+var dropdowndata;
+
+var data;
+
+var selectionarray;
+
 $(document).ready(function(){
 
     
@@ -7,13 +13,34 @@ $(document).ready(function(){
 		$.getJSON("overzichtdemografischeonderwerpen.json", function(json){
 	    dropdowndata = json;
 		    $.each(dropdowndata, function(i,item) {
-		    	$('#sel').append("<option>" + item.Beschrijving + "</option>");
+		    	$('#sel').append("<option>" + item.Naam + "</option>");
 		    });
 		});
 
+	$("#sel").change(function() {
+		var x = $("#sel").val();
+		$("#result").empty();
+		selectionarray = [];
+		//var x = $("#sel option:selected").text();
+		//alert(x);
+		$.each(x, function(i,field){
+			//alert(field)
+			$.each(dropdowndata, function(i,item){
+				if (item.Naam == field) {
+					code = this.Onderwerpcode;
+					selectionarray.push([code]);
+					//selectionarray.push(i++);
+					//selectionarray = $.makeArray(dropdowndata);
+					$("#result").append("<p>" + item.Beschrijving + "</p>");
+					
+				}
+			});
+		});
+	});
+	
+	$("button").click(function(){	
 
-	$("button").click(function(){
-
+	    
 	    var par1 = "bev_tot";
 	    var result;
 		var data;
@@ -22,13 +49,13 @@ $(document).ready(function(){
 	    data = json;
 	    var tbl_body = "";
 	    //header = "<tr><th>" + "period" + "</th><th>" + par1 + "</th></th>";
-	    $("#datatbody").append("<tr><th>" + "period" + "</th><th>" + par1 + "</th></th>");
+	    $("#datatbody").append("<tr><th>" + "period" + "</th><th>" + selectionarray[0] + "</th></th>");
 	    
 	    $.each(data, function(i, item) {
 	    	var tbl_row = "";
 
 	    	$.each(this, function(k , v) {
-	    		if (k == par1 || k == "period") {
+	    		if (k == selectionarray[0] || k == "period") {
 	    			tbl_row += "<td>"+v+"</td>";
 	    		}
             
