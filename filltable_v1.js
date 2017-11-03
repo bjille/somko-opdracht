@@ -40,37 +40,33 @@ $(document).ready(function(){
 	
 	$("button").click(function(){	
 
-	    
-	    var par1 = "bev_tot";
 	    var result;
 		var data;
+		$("#datatbody").empty();
 
 		$.getJSON("bevolkingssamenstellingoverzicht.json", function(json){
 	    data = json;
 	    var tbl_body = "";
-	    //header = "<tr><th>" + "period" + "</th><th>" + par1 + "</th></th>";
-	    $("#datatbody").append("<tr><th>" + "period" + "</th><th>" + selectionarray[0] + "</th></th>");
+	    //$("#datatbody").append("<th>" + "period" + "</th>");
+	    $.each(selectionarray, function(i,item){
+			$("#datatbody").append("<th>" + item + "</th>");
+
+	    });
+	    //$("#datatbody").append("</tr>");
+	    //$("#datatbody").append("<tr><th>" + "period" + "</th><th>" + selectionarray[0] + "</th></th>");
 	    
 	    $.each(data, function(i, item) {
 	    	var tbl_row = "";
 
 	    	$.each(this, function(k , v) {
-	    		if (k == selectionarray[0] || k == "period") {
-	    			tbl_row += "<td>"+v+"</td>";
-	    		}
-            
-        	})
-		    //alert(data[i].par1)
-	    	var obj = data[i];
-		    //console.log(data[i].geoitem);
-		    var $tr = $('<tr>').append(
+	    		$.each(selectionarray, function(k2,v2){
+	    			if (k == v2) {
+	    				tbl_row += "<td>"+v+"</td>";
+	    			}
+				
+				});
+	    	})
 
-            $('<td>').text(obj.geoitem),
-            $('<td>').text(obj[par1])
-
-        ); console.log($tr.wrap('<p>').html());
-		    //console.log(obj.geoitem);
-		    //console.log(obj[par1]);
 		    tbl_body += "<tr>"+tbl_row+"</tr>";
 		});	
 
