@@ -86,15 +86,10 @@ $(document).ready(function(){
 	$("button").click(function(){	
 
 	    var result;
-		//var data;
 		$("#datathead").empty();
 		$("#datatbody").empty();
 		var tbl_body = "";
 
-		/*$.getJSON("bevolkingssamenstellingoverzicht.json", function(json){
-	    data = json;
-	    */
-	    //$("#datatbody").append("<th>" + "period" + "</th>");
 	    if (catarraysel.length == 2 && sectorarraysel.length == 0){
 	    	alert("geen parameters geselecteerd");
 
@@ -103,13 +98,8 @@ $(document).ready(function(){
 				$("#datathead").append("<th>" + item + "</th>");
 				});
 
-			    //$("#datathead").append("</tr>");
-			    //$("#datathead").append("<tr><th>" + "period" + "</th><th>" + catarraysel[0] + "</th></th>");
-			    
 			    $.each(data, function(i, item) {
 			    	var tbl_row = "";
-			    	//if (item.period == 2000 && item.geoitem == "A00") {
-			    	//if (item.geoitem == "A00") {
 			    	if(($.inArray(item.geoitem,sectorarraysel)) != -1) {
 			    		$.each(this, function(k , v) {
 			    		
@@ -127,12 +117,8 @@ $(document).ready(function(){
 			}	
 
 		$("#datatable").addClass('table table-striped');
-		$("#datathead").addClass('thead-inverse');
-		//$("#datatable").html("<tbody>" + tbl_body + "</tbody>");
-		//$("#datatbody").html(header + tbl_body);
 		$("#datatbody").append(tbl_body);
 
-		//});
 	});
 
 
