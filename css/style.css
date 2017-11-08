@@ -15,7 +15,10 @@
 }
 
 .datatable {
-    max-height: 200px;
+    /*position:absolute;
+    width:70%;
+    bottom:0;*/
+    max-height: 350px;
     overflow: auto;
 }
 
