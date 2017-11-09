@@ -23,35 +23,39 @@ function Resetcatarraysel() {
 	catarraysel.push(["geoitem"]);
 }
 
-$.getJSON("bevolkingssamenstellingoverzicht.json", function(json){
-	data = json;
-});
 
-$.getJSON("overzichtdemografischeonderwerpen.json", function(json){
-	dropdowndata = json;
-});
 
 
 $(document).ready(function(){
-
-	Resetcatarraysel();
-    
-    $("#datatable").addClass('table table-striped');
-
-    $.each(dropdowndata, function(i,item) {
-    	$('#sel1').append("<option>" + item.Naam + "</option>");
-    });
-
-    $.each(data, function(i, item) {
-		//sectorarray.push(item.geoitem);
-		//console.log($.inarray(item.geoitem, sectorarray));
-		if(($.inArray(item.geoitem,sectorarray)) == -1) {
-			$('#sel2').append("<option>" + item.geoitem + "</option>");
-			sectorarray.push(item.geoitem);
-	}
+	$.getJSON("bevolkingssamenstellingoverzicht.json", function(json){
+		data = json;
+		$.getJSON("overzichtdemografischeonderwerpen.json", function(json){
+			dropdowndata = json;
 	
+			Resetcatarraysel();
+		    
+		    $("#datatable").addClass('table table-striped');
+
+		    $.each(dropdowndata, function(i,item) {
+		    	$('#sel1').append("<option>" + item.Naam + "</option>");
+		    });
+
+		    $.each(data, function(i, item) {
+				//sectorarray.push(item.geoitem);
+				//console.log($.inarray(item.geoitem, sectorarray));
+				if(($.inArray(item.geoitem,sectorarray)) == -1) {
+					$('#sel2').append("<option>" + item.geoitem + "</option>");
+					sectorarray.push(item.geoitem);
+				}
+			
+			});
+
+		});
 	});
 
+
+	
+	
 	$("#sel1").change(function() {
 		var selection = $("#sel1").val();
 		$("#result").empty();
