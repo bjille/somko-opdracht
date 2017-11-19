@@ -8,14 +8,6 @@ var sectorarray = [];
 
 var sectorarraysel;
 
-function onlyUnique(value, index, self) { 
-    return self.indexOf(value) === index;
-}
-
-function FillGeoarray() {
-
-}
-
 
 function Resetcatarraysel() {
 	catarraysel = [];
@@ -33,8 +25,6 @@ $(document).ready(function(){
 			dropdowndata = json;
 	
 			Resetcatarraysel();
-		    
-		    $("#datatable").addClass('table table-striped');
 
 		    $.each(dropdowndata, function(i,item) {
 		    	$('#sel1').append("<option>" + item.Naam + "</option>");
