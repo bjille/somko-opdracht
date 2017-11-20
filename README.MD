@@ -1,1 +1,1 @@
-Simple web server in python: python -m http.server
+Github forms: https://bjille.github.io/somko-opdracht/
